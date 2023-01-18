@@ -38,16 +38,25 @@ export function Home(){
         <View className="flex-row flex-wrap">
           { 
             datesfromYearStart.map((date)=> {
-            return <HabitDay
+            return (
+              <HabitDay
                 key={date.toISOString()}
               />
+            )
             })
           }
 
           { 
             amountOfDaysToFill > 0 && Array.from({length: amountOfDaysToFill})
               .map((_, index)=> {
-                return <View className="bg-zinc-900 rounded-lg border-2 m-1 border-zinc-800 opacity-40" style={{width: DAY_SIZE, height: DAY_SIZE}}/>
+                return (
+                  <View 
+                    key={index}
+                    className="bg-zinc-900 rounded-lg border-2 m-1 border-zinc-800 opacity-40" 
+                    style={{width: DAY_SIZE, height: DAY_SIZE}}
+                  />
+                )
+                
               })
           }
         </View>
